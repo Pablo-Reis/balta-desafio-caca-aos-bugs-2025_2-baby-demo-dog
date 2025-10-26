@@ -1,6 +1,6 @@
 namespace BugStore.Requests.Products;
 
-public class Create
+public class DeleteProductRequest
 {
     
 }
