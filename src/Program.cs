@@ -1,6 +1,7 @@
 using BugStore.Data;
 using BugStore.Endpoints;
 using BugStore.Handlers.Customers;
+using BugStore.Handlers.Products;
 using BugStore.Interfaces.Handlers;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AppDbContext>(x => x.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<ICustomerHandler, CustomerHandler>();
+builder.Services.AddScoped<IProductHandler, ProductHandler>();
 
 var app = builder.Build();
 

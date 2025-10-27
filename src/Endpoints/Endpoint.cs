@@ -1,4 +1,5 @@
 ﻿using BugStore.Endpoints.Customer;
+using BugStore.Endpoints.Product;
 
 namespace BugStore.Endpoints
 {
@@ -15,10 +16,18 @@ namespace BugStore.Endpoints
             endpoints.MapGroup("v1/customers")
                 .WithTags("Customers")
                 .MapEndpoint<GetCustomersEndpoint>()
-                .MapEndpoint<GetCustomerByIdEndpoint>()
-                .MapEndpoint<CreateCustomerEndpoint>()
-                .MapEndpoint<UpdateCustomerEndpoint>()
-                .MapEndpoint<DeleteCustomerEndpoint>();
+                .MapEndpoint<GetProductByIdEndpoint>()
+                .MapEndpoint<CreateProductEndpoint>()
+                .MapEndpoint<UpdateProductEndpoint>()
+                .MapEndpoint<DeleteProductEndpoint>();
+
+            endpoints.MapGroup("v1/products")
+                .WithTags("Products")
+                .MapEndpoint<GetProductsEndpoint>()
+                .MapEndpoint<GetProductByIdEndpoint>()
+                .MapEndpoint<CreateProductEndpoint>()
+                .MapEndpoint<UpdateProductEndpoint>()
+                .MapEndpoint<DeleteProductEndpoint>();
         }
 
         private static IEndpointRouteBuilder MapEndpoint<TEndpoint>(this IEndpointRouteBuilder app)
