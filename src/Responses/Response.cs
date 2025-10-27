@@ -7,7 +7,10 @@ namespace BugStore.Responses
 
         public T? Data { get; private set; }
         public string? Message { get; private set; }
-        
+
+        [JsonIgnore]
+        public bool IsSuccess => string.IsNullOrEmpty(Message);
+
         public Response(T? data, string message)
         {
             Data = data;

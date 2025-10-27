@@ -1,4 +1,6 @@
-﻿namespace BugStore.Endpoints
+﻿using BugStore.Endpoints.Customer;
+
+namespace BugStore.Endpoints
 {
     public static class Endpoint
     {
@@ -10,8 +12,13 @@
             .WithTags("Health Check")
             .MapGet("/", () => new { message = "OK" });
 
-            endpoints.MapGroup("/customers")
-                .WithTags("Customers");
+            endpoints.MapGroup("v1/customers")
+                .WithTags("Customers")
+                .MapEndpoint<GetCustomersEndpoint>()
+                .MapEndpoint<GetCustomerByIdEndpoint>()
+                .MapEndpoint<CreateCustomerEndpoint>()
+                .MapEndpoint<UpdateCustomerEndpoint>()
+                .MapEndpoint<DeleteCustomerEndpoint>();
         }
 
         private static IEndpointRouteBuilder MapEndpoint<TEndpoint>(this IEndpointRouteBuilder app)
