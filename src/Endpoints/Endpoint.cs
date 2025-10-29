@@ -1,4 +1,5 @@
 ﻿using BugStore.Endpoints.Customer;
+using BugStore.Endpoints.Order;
 using BugStore.Endpoints.Product;
 
 namespace BugStore.Endpoints
@@ -16,10 +17,10 @@ namespace BugStore.Endpoints
             endpoints.MapGroup("v1/customers")
                 .WithTags("Customers")
                 .MapEndpoint<GetCustomersEndpoint>()
-                .MapEndpoint<GetProductByIdEndpoint>()
-                .MapEndpoint<CreateProductEndpoint>()
-                .MapEndpoint<UpdateProductEndpoint>()
-                .MapEndpoint<DeleteProductEndpoint>();
+                .MapEndpoint<GetCustomerByIdEndpoint>()
+                .MapEndpoint<CreateCustomerEndpoint>()
+                .MapEndpoint<UpdateCustomerEndpoint>()
+                .MapEndpoint<DeleteCustomerEndpoint>();
 
             endpoints.MapGroup("v1/products")
                 .WithTags("Products")
@@ -28,6 +29,11 @@ namespace BugStore.Endpoints
                 .MapEndpoint<CreateProductEndpoint>()
                 .MapEndpoint<UpdateProductEndpoint>()
                 .MapEndpoint<DeleteProductEndpoint>();
+
+            endpoints.MapGroup("v1/orders")
+                .WithTags("Orders")
+                .MapEndpoint<GetOrderByIdEndpoint>()
+                .MapEndpoint<CreateOrderEndpoint>();
         }
 
         private static IEndpointRouteBuilder MapEndpoint<TEndpoint>(this IEndpointRouteBuilder app)

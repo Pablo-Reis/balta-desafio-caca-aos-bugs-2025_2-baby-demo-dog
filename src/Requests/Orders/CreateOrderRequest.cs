@@ -14,4 +14,5 @@ public class CreateOrderRequest
 
     [JsonIgnore]
     public DateTime UpdatedAt { get; set; }
+    public List<OrderLine> Lines { get; set; } = null;
 }

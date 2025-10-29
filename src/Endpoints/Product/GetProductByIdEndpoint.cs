@@ -12,7 +12,7 @@ namespace BugStore.Endpoints.Product
     {
         public static void Map(IEndpointRouteBuilder app)
         {
-            app.MapPost("/{id:Guid}", handler: HandleAsync)
+            app.MapGet("/{id:Guid}", handler: HandleAsync)
                 .WithName("Product: Get By Id")
                 .WithSummary("Busca um produto")
                 .WithDescription("Busca um produto")

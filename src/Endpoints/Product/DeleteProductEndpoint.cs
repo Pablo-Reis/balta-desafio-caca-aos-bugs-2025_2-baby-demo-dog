@@ -12,7 +12,7 @@ namespace BugStore.Endpoints.Product
     {
         public static void Map(IEndpointRouteBuilder app)
         {
-            app.MapPost("/{id:Guid}", handler: HandleAsync)
+            app.MapDelete("/{id:Guid}", handler: HandleAsync)
                 .WithName("Product: Delete")
                 .WithSummary("Deleta um produto")
                 .WithDescription("Deleta um produto")
