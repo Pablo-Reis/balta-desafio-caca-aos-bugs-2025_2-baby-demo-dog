@@ -20,10 +20,10 @@ public class CustomerHandler(AppDbContext context) : ICustomerHandler
         };
         try
         {
-            await context.Customers.AddAsync(customer);
+            var createdModel = await context.Customers.AddAsync(customer);
             await context.SaveChangesAsync();
 
-            return new Response<Customer>(customer);
+            return new Response<Customer>(createdModel.Entity);
         }
         catch (Exception ex)
         {

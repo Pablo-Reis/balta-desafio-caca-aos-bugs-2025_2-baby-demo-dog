@@ -1,4 +1,5 @@
 using BugStore.Models;
+using BugStore.Requests.OrderLines;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
@@ -14,5 +15,5 @@ public class CreateOrderRequest
 
     [JsonIgnore]
     public DateTime UpdatedAt { get; set; }
-    public List<OrderLine> Lines { get; set; } = null;
+    public List<CreateOrderLineRequest> Lines { get; set; } = null;
 }

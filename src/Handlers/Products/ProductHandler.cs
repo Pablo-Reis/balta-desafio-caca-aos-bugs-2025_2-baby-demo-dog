@@ -20,10 +20,10 @@ public class ProductHandler(AppDbContext context) : IProductHandler
         };
         try
         {
-            await context.Products.AddAsync(Product);
+            var createdModel = await context.Products.AddAsync(Product);
             await context.SaveChangesAsync();
 
-            return new Response<Product>(Product);
+            return new Response<Product>(createdModel.Entity);
         }
         catch (Exception ex)
         {
